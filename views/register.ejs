@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <h1><%= title %></h1>
+      </div>
+      <div class="">
+        <form action='' method='POST'>
+            <label for="username">Username</label>
+            <% if (locals.username) { %>
+              <input type="text" required name="username" placeholder="Username" <%="value="%><%=username%> type="text">
+            <% } else { %>
+              <input type="text" required name="username" placeholder="Username" type="text">
+            <% } %>
+
+            <% if (locals.usernameExists) { %>
+            <span><%= usernameExists %></span>
+            <% } %>
+
+            <label for="password">Password</label>
+            <input type="password" required name="password" placeholder="Password" />
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword" required />
+            <% if (locals.passwordConfirmError){ %>
+            <span><%= passwordConfirmError %></span>
+            <% } %>
+            <button>Register</button>
+        </form>
+      </div>
+      </div>
+  </body>
+</html>

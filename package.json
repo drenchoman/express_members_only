@@ -1,0 +1,33 @@
+{
+  "name": "members_only",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www",
+    "devstart": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Oscar <oscarharron@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "helmet": "^5.0.1",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.1.6",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
