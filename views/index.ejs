@@ -18,9 +18,25 @@
         </button>
       </div>
       <% if(user){ %>
+          <% if (!user.member) { %>
         <div>
-          <h2>Scoop!</h2>
+          <h2>Thanks for signing up!</h2>
+          <p>
+            To confirm your membership and submit a message, please enter passcode 1337 in the box below.
+          </p>
+          <form method='POST' action='/addmembership'>
+            <label for='passcode'>Passcode</label>
+            <input type='string' required name='passcode' placeholder='Passcode' />
+            <% if (locals.passcodeError) { %>
+              <span> <%= locals.passcodeError %> </span>
+            <% } %>
+            <button>Enter</button>
+          </form>
+          <p>
+            <%= locals.user.member %>
+          </p>
         </div>
+      <% } %>
       <% } %>
       </div>
 
