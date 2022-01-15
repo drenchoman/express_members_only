@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+/* css styling resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: #18191A;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+
+}
+h1, h2, h3, label{
+  font-family: 'Press Start 2P', cursive;
+  color: #20C20E;
+}
+p, span, li{
+  font-family: 'VT323', monospace;
+  color: #ffffff;
+}
+
+
+/* INDEX */
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+align-items: center;
+}
+
+.wrapperLog{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.home{
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  width: 50px;
+  height: 50px;
+}
+
+.welcome{
+  margin: 0.5rem 0;
+
+}
+.welcome > h2{
+  font-size: 1rem;
+}
+
+.indexHeader{
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.fancyButton{
+  background-color: #18191A; /* Green */
+  border: 2px solid #20C20E;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.fancyButton:hover{
+  cursor: pointer;
+  background-color: #20C20E;
+}
+
+.fancyButton > a{
+  color: #ffffff;
+
+}
+
+.loginOptions{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 1.5rem 0 1rem 0;
+  width: 300px;
+
+}
+
+.cardWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 5px double #20C20E;
+  padding: 1rem 1rem 0.5rem 0.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem 0;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.cardContent{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 350px;
+}
+
+.cardBottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.cardTop{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem 0 1rem;
+}
+
+.cardHeader{
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+}
+
+.cardText{
+  display: flex;
+  flex-direction: column;
+}
+
+.cardAuthor{
+  display: flex;
+  flex-direction: column;
+  margin: 0.25rem 0;
+}
+.cardAuthor > span{
+  width: 50%;
+}
+.cardDate{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0.5rem 0 0.25rem 0;
+
+}
+
+.cardImage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+.cardImage > img{
+  width: 50px;
+}
+
+.filterGreen{
+filter: invert(58%) sepia(21%) saturate(7213%) hue-rotate(78deg) brightness(102%) contrast(94%);
+}
+
+/* LOGIN */
+
+.loginForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+}
+
+.registerForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 350px;
+}
+
+.header{
+  margin: 1rem 0;
+}
+
+/* REGISTER */
+
+.avatarWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarBox{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatarImage{
+  height: 50px;
+  width: 50px;
+  margin: 0 0.5rem;
+  filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(130deg) brightness(111%) contrast(101%);
+}
+
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]:checked + img {
+    border: 1px solid red;
+    border-radius: 100%;
+}
+
+/* MESSAGE */
+
+.messageWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* WELCOME */
+
+.welcome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.messageTitle, .messageText{
+  width: 250px;
+  margin: 0.5rem 0;
+}
+
+/* MEMBERCONFIRM */
+
+.confirmWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+}
+
+.passcodeWrapper{
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  margin: 1rem 0;
+}
+
+.passcodeSlider{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-height: 115px;
+  vertical-align: top;
+  position: relative;
+  height: 45px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.passcodeSlide, .passcodeSlide2, .passcodeSlide3, .passcodeSlide4{
+  color: inherit;
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+  font-size: 32px;
+  z-index: 10;
+}
+
+.answer{
+  color: #20C20E;
+}
+
+.passcodeWrapper span{
+  display: block;
+  position: absolute;
+}
+
+@keyframes animation-1 {
+    0% { bottom: 0;}
+  25% { bottom: 110%; opacity: 1}
+    74% { opacity: 0; bottom: 110%;}
+    75% { bottom: -110%; opacity: 0;}
+  76% {bottom: -110%; opacity: 1;}
+    100% { bottom: 0; opacity: 1;}
+}
+
+@keyframes animation-2 {
+	0% { bottom: -110%;}
+  25% { bottom: 0; opacity: 1}
+  50% { bottom: 110%; opacity: 1;}
+    51% { opacity: 0; bottom: 110%;}
+    100% { bottom: -110%;opacity: 0}
+}
+
+ @keyframes animation-3 {
+    0%, 25%{ bottom: -110%; }
+  50% { bottom: 0; opacity: 1;}
+  75% { bottom: 110%; opacity: 1;}
+    76% { opacity: 0; bottom: 110%;}
+    100% { bottom: -110%;opacity: 0}
+}
+
+@keyframes animation-4 {
+	0%, 50% { bottom: -110%; }
+  75% { bottom: 0; opacity: 1;}
+  100% { bottom: 110%; opacity: 1;}
+}
+
+.passcodeSlide:nth-child(1){
+    animation-name: animation-1;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.passcodeSlide:nth-child(2){
+    animation-name: animation-2;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.passcodeSlide:nth-child(3){
+    animation-name: animation-3;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.passcodeSlide:nth-child(4){
+    animation-name: animation-4;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.passcodeSlide2:nth-child(1){
+    animation-name: animation-1;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.passcodeSlide2:nth-child(2){
+    animation-name: animation-2;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+.passcodeSlide2:nth-child(3){
+    animation-name: animation-3;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+.passcodeSlide2:nth-child(4){
+    animation-name: animation-4;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+.passcodeSlide3:nth-child(1){
+    animation-name: animation-1;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.passcodeSlide3:nth-child(2){
+    animation-name: animation-2;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+.passcodeSlide3:nth-child(3){
+    animation-name: animation-3;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+.passcodeSlide3:nth-child(4){
+    animation-name: animation-4;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+.passcodeSlide4:nth-child(1){
+    animation-name: animation-1;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.passcodeSlide4:nth-child(2){
+    animation-name: animation-2;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+.passcodeSlide4:nth-child(3){
+    animation-name: animation-3;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+.passcodeSlide4:nth-child(4){
+    animation-name: animation-4;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+.errors{
+  margin: 0.5rem 0;
+}

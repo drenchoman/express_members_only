@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/styles.css" rel="stylesheet" type="text/css">
+
+  </meta(name>
+    <title>Confirm your membership</title>
+  </head>
+  <body>
+
+      <% if(locals.user){ %>
+          <% if (!locals.user.member) { %>
+      <div class='wrapperLog'>
+        <div>
+          <h2 class='header'>Thanks for signing up!</h2>
+        </div>
+          <p>
+            Enter passcode and confirm your membership
+          </p>
+        <div class='passcodeWrapper'>
+          <div class='passcodeSlider'>
+            <span class='passcodeSlide'>4</span>
+            <span class='passcodeSlide'>5</span>
+            <span class='passcodeSlide'>7</span>
+            <span class='passcodeSlide answer'>2</span>
+          </div>
+          <div class='passcodeSlider'>
+            <span class='passcodeSlide2'>9</span>
+            <span class='passcodeSlide2 answer'>1</span>
+            <span class='passcodeSlide2'>6</span>
+            <span class='passcodeSlide2'>8</span>
+          </div>
+          <div class='passcodeSlider'>
+            <span class='passcodeSlide3'>3</span>
+            <span class='passcodeSlide3'>1</span>
+            <span class='passcodeSlide3 answer'>6</span>
+            <span class='passcodeSlide3'>8</span>
+          </div>
+          <div class='passcodeSlider'>
+            <span class='passcodeSlide4'>9</span>
+            <span class='passcodeSlide4'>2</span>
+            <span class='passcodeSlide4'>6</span>
+            <span class='passcodeSlide4 answer'>9</span>
+          </div>
+        </div>
+          <form class='confirmWrapper' method='POST' action=''>
+            <label for='passcode'>Passcode</label>
+            <input type='string' required name='passcode' placeholder='Passcode' />
+            <% if (locals.passcodeError) {%>
+            <span> <%= locals.passcodeError %></span>
+            <%}%>
+            <button class='fancyButton'>Enter</button>
+
+          </form>
+
+      </div>
+      </div>
+        <% } else{ %>
+          <div class='wrapper'>
+            <div class='welcome'>
+              <h1 class='header'> Welcome <br> <%= user.username %></h1>
+            </div>
+            <div>
+              <form class='messageWrapper' method='POST' action='/submitpost'>
+                <label for='title'>Title</label>
+                <input class='messageTitle' type='text' placeholder='Title' name='title' required  />
+                <label for='message'>Message</label>
+                <textarea class='messageText' name='message' required></textarea>
+                <button class='fancyButton'>Submit</button>
+
+              </form>
+            </div>
+
+            <% if(locals.messages){ %>
+              <% messages.forEach(function(message) { %>
+              <div class='cardWrapper'>
+                <div class='cardTop'>
+                  <div class='cardImage'>
+                    <img class='filterGreen' <%='src='%><%=message.user.getImageURL%>>
+                  </div>
+                  <div class='cardAuthor'>
+                    <span><%= message.user.username %></span>
+                  </div>
+                </div>
+                <div class='cardBottom'>
+                  <div class='cardContent'>
+                    <div class='cardHeader'>
+                      <h3><%= message.title %></h3>
+                    </div>
+                    <div class='cardText'>
+                      <p>
+                        <%= message.message %>
+                      </p>
+                    </div>
+                  </div>
+                <div class='cardDate'>
+                  <span><%= message.getTime %></span>
+                  <span><%= message.getDate %></span>
+                  </div>
+                </div>
+              </div>
+
+
+            <% }) } %>
+
+            <% } %>
+          </div>
+
+        <% } else{ %>
+          <div>
+            <div>
+              <h1>Please log in</h1>
+            </div>
+            <div class="">
+              <form action="/login" method="POST" >
+                  <label for="username">Username</label>
+                  <input type="text" name="username" placeholder="Username" type="text">
+
+                  <label for="password">Password</label>
+                  <input type="password" name="password" placeholder="Password" />
+
+                  <% if(locals.errorMessage){ %>
+                    <span><%= locals.errorMessage %></span>
+                  <% } %>
+                  <button>Log in</button>
+              </form>
+            </div>
+            </div>
+
+        <% } %>
+
+          </div>
+
+
+
+
+  </body>
+</html>

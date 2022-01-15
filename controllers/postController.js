@@ -2,15 +2,23 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/users')
 const passport = require('passport')
 const { body, validationResult } = require('express-validator')
+const Message = require('../models/messages')
 
-exports.index = function(req, res, next){
-    res.render('index', {user: req.user, })
+exports.index = async(req, res, next) => {
+  try{
+    const messages = await Message.find().sort([['timeStamp', 'descending']]).populate('user');
+
+    res.render('index', {user: req.user, messages: messages,});
+  }
+    catch(err){
+      return next(err);
+    }
 
 };
 
 exports.confirmMembership_post = [
   body('passcode').trim().isLength({max: 4}).escape().custom(async(value,{ req }) => {
-    if( value !== '1337'){
+    if( value !== '2169'){
       throw new Error('Passcode is incorrect')
     }
     return true;
@@ -19,7 +27,7 @@ exports.confirmMembership_post = [
   async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()){
-      return res.render('/index', {passcodeError: 'Passcode is incorrect'});
+      return res.render('member', {user:req.user, passcodeError: 'Passcode is incorrect'});
     }
         const userToUpdate = await User.findOne({username: res.locals.currentUser.username});
         userToUpdate.member = true;
@@ -28,24 +36,69 @@ exports.confirmMembership_post = [
             return next(err);
           }
           console.log('User updated to offical member');
-          res.redirect('/');
+          res.redirect('/member');
         });
       }
 ];
 
+
 exports.login_get = function(req, res, next){
+  if (res.locals.currentUser){
+    res.redirect('/member')
+  }
   res.render('login', {message: req.flash('error')})
 };
 
 exports.register_get = function(req, res, next){
+  const images =
   res.render('register', {title: 'Register',})
 };
 
+exports.memberpage_get = async function(req, res, next){
+  try{
+    const messages = await Message.find().sort([['timeStamp', 'descending']]).populate('user');
+    res.render('member', {user: req.user, errorMessage: req.flash('error',), messages: messages})
+  } catch(err){
+    return next(err);
+  }
+};
+
 exports.loginUser_post = passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/member',
     failureRedirect: '/login',
     failureFlash: true
   });
+
+exports.addMessage_post = [
+  body('title').trim().isLength({min:1}).withMessage('Add a title to your post'),
+  body('message').trim().isLength({min:1}).withMessage('Add a message!'),
+
+  async (req ,res, next) => {
+    const errors = validationResult(req)
+  if(!errors.isEmpty()){
+    console.log('error', errors)
+    return next(err);
+}
+  try{
+    const message = new Message({
+      title: req.body.title,
+      message: req.body.message,
+      user:res.locals.currentUser
+    })
+    message.save(err =>{
+      if (err){
+        return next(err);
+      }
+      console.log('message saved');
+      res.redirect('/member');
+    })
+
+  } catch(err){
+    return next(err);
+  }
+
+  }
+]
 
 
 exports.createUser_post = [
@@ -64,7 +117,6 @@ exports.createUser_post = [
      async (req, res, next) => {
       const errors = validationResult(req)
       if (!errors.isEmpty()){
-        console.log('Errors', errors.errors[0])
         return res.render('register', {title: 'Register', errors: errors.errors, username: req.body.username})
       }
       try {
@@ -79,17 +131,24 @@ exports.createUser_post = [
               password: hashedPassword,
               admin: false,
               member: false,
+              avatar: req.body.avatar
 
-            }).save(err => {
+            })
+            user.save(err => {
               if (err){
                 return next(err);
               }
+
               // New User created was successful
               console.log('user created')
-              res.redirect('/')
-            });
-          })
-        } catch(err){
+
+              res.redirect('/login')
+
+            })
+
+
+        })
+      }  catch(err){
           return next(err);
         }
         }

@@ -62,6 +62,8 @@ app.use(helmet());
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(compression());
+app.use(express.static(__dirname+'/public'));
+
 
 app.use(session({ secret: 'dogs', resave: false, saveUninitialized: true}));
 app.use(express.urlencoded({ extended: false}));
