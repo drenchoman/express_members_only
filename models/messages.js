@@ -14,7 +14,7 @@ var MessageSchema = new Schema({
 MessageSchema
   .virtual('getDate')
   .get(function () {
-    return DateTime.fromJSDate(this.timeStamp).toFormat('dd LLL yyyy, HH:mm');
+    return DateTime.fromJSDate(this.timeStamp).toFormat('dd LLL yyyy');
   });
 
 MessageSchema
@@ -23,6 +23,6 @@ MessageSchema
     return DateTime.fromJSDate(this.timeStamp).toFormat('HH: mm')
   })
 
-  
+
 
 module.exports = mongoose.model('Message', MessageSchema);
