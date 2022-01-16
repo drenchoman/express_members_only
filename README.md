@@ -2,8 +2,7 @@
 
 ![alt Hacker Club Landing Page](https://res.cloudinary.com/dhkbanegq/image/upload/v1642295849/avatars/hacker_home_oajgnv.jpg)
 
-> ## From The Odin Project's [curriculum]
-(https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/members-only)
+> ## From The Odin Project's [curriculum](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/members-only)
 
 > - [live demo](https://hacker-club.herokuapp.com/)
 
