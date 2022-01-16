@@ -2,14 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link href="/styles.css" rel="stylesheet" type="text/css">
+    <link href="/styles/globals.css" rel="stylesheet" type="text/css">
+    <link href="/styles/index.css" rel="stylesheet" type="text/css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Homepage</title>
   </head>
   <body>
     <div class='wrapper'>
       <div class='indexHeader'>
-        <h1>Hacker Club</h1>
+        <h1 class='blink'>Hacker Club</h1>
       </div>
       <div class='welcome'>
         <h2>Register or log in to make a post.</h2>
@@ -21,12 +23,13 @@
             <a href="/register">Register</a>
           </button>
         </div>
-        <img onclick='returnHome()' class='home filterGreen' src='/images/home.svg' />
-      </div>
+        <a href="/">
+          <img class='home filterGreen' src='/images/home.svg' />
+        </a>      </div>
 
       <% if(locals.messages){ %>
         <% messages.forEach(function(message) { %>
-        <div class='cardWrapper'>
+        <div class='cardWrapper fadeIn'>
           <div class='cardTop'>
             <div class='cardImage'>
               <img class='filterGreen' src='images/face.svg'/>
@@ -61,7 +64,6 @@
       <% }) } %>
 
         </div>
-        <script src='/js/app.js'></script>
 
   </body>
 </html>

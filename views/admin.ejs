@@ -9,28 +9,44 @@
   </head>
   <body>
     <div class='wrapperLog'>
+
+    <% if(!locals.user) {%>
       <div>
-        <h1 class='header'>Please log in</h1>
+      <h1 class='header'>What are you doing here?</h1>
+    </div>
+    <a href="/">
+      <img class='home filterGreen' src='/images/home.svg' />
+    </a>
+    <%} else if(!locals.user.admin){ %>
+      <div>
+        <h1 class='header'><%= title %></h1>
       </div>
       <div>
         <form class='loginForm' action="" method="POST" >
             <label for='username'>Username</label>
             <input type='text' name='username' placeholder='Username' type='text'>
 
-            <label for='password'>Password</label>
+            <label for='password'>Admin Password</label>
             <input type='password' name='password' placeholder='Password' />
 
-            <% if(message){ %>
-              <span><%= message %></span>
+            <% if(locals.message){ %>
+              <span><%= locals.message %></span>
             <% } %>
             <button class='fancyButton'>Log in</button>
+            <img class='home filterGreen' src='/images/home.svg' />
 
         </form>
-        <a href="/">
-          <img class='home filterGreen' src='/images/home.svg' />
-        </a>
+
       </div>
-      </div>
+
+    <% } else{ %>
+    <div>
+      <h1 class='header'>You are already an admin</h1>
+    </div>
+    <a href="/">
+      <img class='home filterGreen' src='/images/home.svg' />
+    </a>      <% } %>
+    </div>
 
   </body>
 

@@ -1,109 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
-/* css styling resets */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-}
-html, body {
-  height: 100%;
-}
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  background-color: #18191A;
-}
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-input, button, textarea, select {
-  font: inherit;
-}
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-
-}
-h1, h2, h3, label{
-  font-family: 'Press Start 2P', cursive;
-  color: #20C20E;
-}
-p, span, li{
-  font-family: 'VT323', monospace;
-  color: #ffffff;
-}
-
-
-/* INDEX */
-
 .wrapper{
   display: flex;
   flex-direction: column;
 align-items: center;
 }
 
-.wrapperLog{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 90vh;
-}
-
-.home{
-  position: absolute;
-  top: 2.5%;
-  left: 2.5%;
-  width: 50px;
-  height: 50px;
-}
-
 .welcome{
-  margin: 0.5rem 0;
-
-}
-.welcome > h2{
-  font-size: 1rem;
-}
-
-.indexHeader{
-  font-size: 1.5rem;
-  margin: 1rem 0;
-}
-
-.fancyButton{
-  background-color: #18191A; /* Green */
-  border: 2px solid #20C20E;
-  padding: 0.25rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  color: #ffffff;
-}
-
-.fancyButton:hover{
-  cursor: pointer;
-  background-color: #20C20E;
-}
-
-.fancyButton > a{
-  color: #ffffff;
-
-}
-
-.loginOptions{
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 1.5rem 0 1rem 0;
-  width: 300px;
-
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0.5rem 0;
 }
 
 .cardWrapper{
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: center;
   border: 5px double #20C20E;
@@ -114,11 +26,12 @@ align-items: center;
   border-radius: 1rem 1rem 1rem 1rem;
 }
 
-.cardContent{
+.cardTop{
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  width: 350px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem 0 1rem;
 }
 
 .cardBottom{
@@ -128,12 +41,11 @@ align-items: center;
   padding: 0.5rem 0;
 }
 
-.cardTop{
+.cardContent{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1.5rem 0 1rem;
+  max-width: 100%;
+  width: 350px;
 }
 
 .cardHeader{
@@ -175,64 +87,25 @@ align-items: center;
   width: 50px;
 }
 
-.filterGreen{
-filter: invert(58%) sepia(21%) saturate(7213%) hue-rotate(78deg) brightness(102%) contrast(94%);
+.welcome > h2{
+  font-size: 1rem;
 }
 
-/* LOGIN */
-
-.loginForm{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 200px;
+.trash{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+.trash:hover{
+  cursor: pointer;
 }
 
-.registerForm{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 350px;
-}
 
-.header{
-  margin: 1rem 0;
+.logout{
+  margin-bottom: 0.5rem;
 }
-
-/* REGISTER */
-
-.avatarWrapper{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.avatarBox{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.avatarImage{
-  height: 50px;
-  width: 50px;
-  margin: 0 0.5rem;
-  filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(130deg) brightness(111%) contrast(101%);
-}
-
-input[type="radio"] {
-    display: none;
-}
-input[type="radio"]:checked + img {
-    border: 1px solid red;
-    border-radius: 100%;
-}
-
-/* MESSAGE */
 
 .messageWrapper{
   display: flex;
@@ -242,19 +115,27 @@ input[type="radio"]:checked + img {
   height: 200px;
 }
 
-/* WELCOME */
-
-.welcome{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
 .messageTitle, .messageText{
   width: 250px;
   margin: 0.5rem 0;
+}
+
+/* Member login  */
+
+.wrapperLog{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.loginForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
 }
 
 /* MEMBERCONFIRM */
@@ -287,6 +168,8 @@ input[type="radio"]:checked + img {
   overflow: hidden;
   z-index: 10;
 }
+
+
 
 .passcodeSlide, .passcodeSlide2, .passcodeSlide3, .passcodeSlide4{
   color: inherit;
@@ -342,6 +225,7 @@ input[type="radio"]:checked + img {
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-1 2s ease-in-out infinite;
 }
 
 .passcodeSlide:nth-child(2){
@@ -349,6 +233,8 @@ input[type="radio"]:checked + img {
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-2 2s ease-in-out infinite;
+
 }
 
 .passcodeSlide:nth-child(3){
@@ -356,6 +242,8 @@ input[type="radio"]:checked + img {
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-3 2s ease-in-out infinite;
+
 }
 
 .passcodeSlide:nth-child(4){
@@ -363,6 +251,8 @@ input[type="radio"]:checked + img {
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-4 2s ease-in-out infinite;
+
 }
 
 .passcodeSlide2:nth-child(1){
@@ -370,6 +260,8 @@ input[type="radio"]:checked + img {
     animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-1 10s ease-in-out infinite;
+
 }
 
 .passcodeSlide2:nth-child(2){
@@ -377,6 +269,8 @@ input[type="radio"]:checked + img {
     animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-2 10s ease-in-out infinite;
+
 
 }
 
@@ -385,6 +279,8 @@ input[type="radio"]:checked + img {
     animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-3 10s ease-in-out infinite;
+
 
 }
 
@@ -393,6 +289,8 @@ input[type="radio"]:checked + img {
     animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-4 10s ease-in-out infinite;
+
 
 }
 
@@ -401,6 +299,8 @@ input[type="radio"]:checked + img {
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-1 6s ease-in-out infinite;
+
 }
 
 .passcodeSlide3:nth-child(2){
@@ -408,6 +308,7 @@ input[type="radio"]:checked + img {
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-2 6s ease-in-out infinite;
 
 }
 
@@ -416,7 +317,7 @@ input[type="radio"]:checked + img {
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-
+    -webkit-animation: animation-3 6s ease-in-out infinite;
 }
 
 .passcodeSlide3:nth-child(4){
@@ -424,6 +325,7 @@ input[type="radio"]:checked + img {
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-4 6s ease-in-out infinite;
 
 }
 
@@ -432,6 +334,7 @@ input[type="radio"]:checked + img {
     animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-1 4s ease-in-out infinite;
 }
 
 .passcodeSlide4:nth-child(2){
@@ -439,6 +342,7 @@ input[type="radio"]:checked + img {
     animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-2 4s ease-in-out infinite;
 
 }
 
@@ -447,6 +351,7 @@ input[type="radio"]:checked + img {
     animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-3 4s ease-in-out infinite;
 
 }
 
@@ -455,9 +360,97 @@ input[type="radio"]:checked + img {
     animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    -webkit-animation: animation-4 4s ease-in-out infinite;
 
 }
 
-.errors{
-  margin: 0.5rem 0;
+
+@media screen and (max-width: 414px){
+  .cardWrapper{
+    padding: 0.25rem;
+    flex-direction: column-reverse;
+  }
+  .cardContent{
+    width: 100%;
+  }
+  .wrapper{
+    padding: 0 0.75rem;
+  }
+  .cardHeader{
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+  .cardText{
+    padding: 0 0.5rem;
+  }
+  .cardDate{
+    padding-right: 0.5rem;
+  }
+  .indexHeader{
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cardAuthor > span{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px){
+  .cardWrapper{
+    padding: 0.25rem;
+    flex-direction: column-reverse;
+  }
+  .cardContent{
+    width: 100%;
+  }
+  .wrapper{
+    padding: 0 0.75rem;
+  }
+  .cardHeader{
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+  .cardText{
+    padding: 0 0.5rem;
+  }
+  .cardDate{
+    padding-right: 0.5rem;
+  }
+  .indexHeader{
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cardAuthor > span{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 325px){
+  .cardWrapper{
+    padding: 0.25rem;
+    flex-direction: column-reverse;
+  }
+  .cardContent{
+    width: 100%;
+  }
+  .wrapper{
+    padding: 0 0.75rem;
+  }
+  .cardHeader{
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+  .cardText{
+    padding: 0 0.5rem;
+  }
+  .cardDate{
+    padding-right: 0.5rem;
+  }
+  .indexHeader{
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cardAuthor > span{
+    width: 100%;
+  }
 }

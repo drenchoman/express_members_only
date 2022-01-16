@@ -1,26 +1,49 @@
 const express = require('express');
 const router = express.Router();
 
-const post_controller = require('../controllers/postController');
-
+const admin_controller = require('../controllers/adminController');
+const member_controller = require('../controllers/memberController');
+const login_controller = require('../controllers/loginController');
+const register_controller = require('../controllers/registerController');
+const index_controller = require('../controllers/indexController');
 
 // Index page
-router.get('/', post_controller.index);
+router.get('/', index_controller.index);
 
-router.post('/member', post_controller.confirmMembership_post);
+// Member page
 
-router.post('/register', post_controller.createUser_post);
+router.post('/member', member_controller.confirmMembership_post);
 
-router.post('/submitpost', post_controller.addMessage_post);
+router.get('/member', member_controller.memberpage_get);
+
+router.post('/submitpost', member_controller.addMessage_post);
+
+// Register page
+
+router.get('/register', register_controller.register_get);
+
+router.post('/register', register_controller.createUser_post);
+
 // Log in page
-router.get('/login', post_controller.login_get);
 
-router.post('/login', post_controller.loginUser_post);
+router.get('/login', login_controller.login_get);
 
+router.post('/login', login_controller.loginUser_post);
 
-router.get('/member', post_controller.memberpage_get);
+// Admin member
 
-router.get('/register', post_controller.register_get);
+router.get('/admin', admin_controller.admin_get);
+
+router.post('/admin', admin_controller.makeAdmin_post);
+
+router.post('/delete', admin_controller.delete_post)
+
+// Log out
+
+router.get('/logout', (req, res) =>{
+  req.logout();
+  res.redirect('/');
+});
 
 
 

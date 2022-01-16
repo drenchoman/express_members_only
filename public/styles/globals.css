@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+/* css styling resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: #18191A;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+
+}
+h1, h2, h3, label{
+  font-family: 'Press Start 2P', cursive;
+  color: #20C20E;
+}
+p, span, li{
+  font-family: 'VT323', monospace;
+  color: #ffffff;
+}
+
+.fancyButton{
+  background-color: #18191A; /* Green */
+  border: 2px solid #20C20E;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.fancyButton:hover{
+  cursor: pointer;
+  background-color: #20C20E;
+}
+
+.fancyButton:focus{
+  cursor: pointer;
+  background-color: #20C20E;
+}
+
+.fancyButton > a{
+  color: #ffffff;
+}
+
+.home{
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  width: 50px;
+  height: 50px;
+}
+
+.home:hover{
+  cursor: pointer;
+}
+
+.admin{
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+  width: 50px;
+  height: 50px;
+}
+
+.admin:hover{
+  cursor:pointer
+}
+
+.filterGreen{
+filter: invert(58%) sepia(21%) saturate(7213%) hue-rotate(78deg) brightness(102%) contrast(94%);
+}
+
+.wrapperLog{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.header{
+  margin: 1rem 0;
+}
+
+.errors{
+  margin: 0.5rem 0;
+}
+
+.blink{
+  animation: blink-animation 2.3s steps(5, start) infinite;
+  -webkit-animation: blink-animation 2.3s steps(5, start) infinite;
+}
+
+.fadeIn{
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes animate-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes blink-animation {
+        to {
+          visibility: hidden;
+        }
+      }
+      @-webkit-keyframes blink-animation {
+        to {
+          visibility: hidden;
+        }
+      }
+
+@media screen and (max-width: 414px){
+  .home{
+    width: 25px;
+    height: 25px;
+    left: 0.75rem;
+  }
+  .admin{
+    width: 25px;
+    height: 25px;
+    right: 0.75em;
+  }
+  p{
+    font-size: 18px;
+  }
+  .wrapperLog{
+    padding: 0 0.75rem;
+  }
+  .header{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 375px){
+  .home{
+    width: 25px;
+    height: 25px;
+    left: 0.75rem;
+  }
+  .admin{
+    width: 25px;
+    height: 25px;
+    right: 0.75em;
+  }
+  p{
+    font-size: 18px;
+  }
+  .wrapperLog{
+    padding: 0 0.75rem;
+  }
+  .header{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 325px){
+  .home{
+    width: 25px;
+    height: 25px;
+    left: 0.75rem;
+  }
+  .admin{
+    width: 25px;
+    height: 25px;
+    right: 0.75em;
+  }
+
+  .wrapperLog{
+    padding: 0 0.75rem;
+  }
+
+  .header{
+    text-align: center;
+  }
+}

@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/styles.css" rel="stylesheet" type="text/css">
+    <link href="/styles/globals.css" rel="stylesheet" type="text/css">
+    <link href="/styles/member.css" rel="stylesheet" type="text/css">
 
   </meta(name>
     <title>Confirm your membership</title>
@@ -51,6 +52,10 @@
             <% if (locals.passcodeError) {%>
             <span> <%= locals.passcodeError %></span>
             <%}%>
+            <a href="/">
+              <img class='home filterGreen' src='/images/home.svg' />
+            </a>
+
             <button class='fancyButton'>Enter</button>
 
           </form>
@@ -60,22 +65,39 @@
         <% } else{ %>
           <div class='wrapper'>
             <div class='welcome'>
-              <h1 class='header'> Welcome <br> <%= user.username %></h1>
+              <h1 class='header blink'> Welcome <br> <%= user.username %></h1>
+              <button class='fancyButton logout'>
+                <a href="/logout">Logout</a>
+              </button>
             </div>
             <div>
               <form class='messageWrapper' method='POST' action='/submitpost'>
                 <label for='title'>Title</label>
                 <input class='messageTitle' type='text' placeholder='Title' name='title' required  />
                 <label for='message'>Message</label>
-                <textarea class='messageText' name='message' required></textarea>
+                <textarea class='messageText' name='message' placeholder='What do you have to say?' required></textarea>
                 <button class='fancyButton'>Submit</button>
-
               </form>
             </div>
+            <a href="/">
+              <img class='home filterGreen' src='/images/home.svg' />
+            </a>
+            <a href="/admin">
+              <img class='admin filterGreen' src='/images/admin.svg'/>
+            </a>
+
 
             <% if(locals.messages){ %>
               <% messages.forEach(function(message) { %>
-              <div class='cardWrapper'>
+              <div class='cardWrapper fadeIn'>
+                <% if(locals.user.admin) { %>
+                  <div class='trash'>
+                    <form action="/delete" method="POST">
+                      <input type='hidden' name='messageId' <%='value='%><%=message._id%> />
+                      <input type='image' src='/images/trash.svg' class='filterGreen trash' />
+                    </form>
+                  </div>
+                  <% } %>
                 <div class='cardTop'>
                   <div class='cardImage'>
                     <img class='filterGreen' <%='src='%><%=message.user.getImageURL%>>
@@ -99,7 +121,7 @@
                   <span><%= message.getTime %></span>
                   <span><%= message.getDate %></span>
                   </div>
-                </div>
+                  </div>
               </div>
 
 
@@ -109,12 +131,12 @@
           </div>
 
         <% } else{ %>
-          <div>
+          <div class='wrapperLog'>
             <div>
-              <h1>Please log in</h1>
+              <h1 class='header'>Please log in</h1>
             </div>
             <div class="">
-              <form action="/login" method="POST" >
+              <form class='loginForm' action="/login" method="POST" >
                   <label for="username">Username</label>
                   <input type="text" name="username" placeholder="Username" type="text">
 
@@ -124,7 +146,11 @@
                   <% if(locals.errorMessage){ %>
                     <span><%= locals.errorMessage %></span>
                   <% } %>
-                  <button>Log in</button>
+                  <a href="/">
+                    <img class='home filterGreen' src='/images/home.svg' />
+                  </a>
+
+                  <button class='fancyButton'>Log in</button>
               </form>
             </div>
             </div>
@@ -132,7 +158,6 @@
         <% } %>
 
           </div>
-
 
 
 
