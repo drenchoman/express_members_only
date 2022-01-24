@@ -5,8 +5,18 @@ exports.index = async(req, res, next) => {
     res.redirect('/member')
   }
   try{
-    const messages = await Message.find().sort([['timeStamp', 'descending']]).populate('user');
-
+    const messages = await Message.find().sort([['timeStamp', 'descending']])
+    .populate([{
+      path: 'user',
+      model: 'User'
+    }, {
+      path: 'replies',
+      model: 'Replies',
+      populate: {
+        path: 'user',
+        model: 'User'
+      }
+    }]);
     res.render('index', {user: req.user, messages: messages,});
   }
     catch(err){

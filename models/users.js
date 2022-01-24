@@ -7,7 +7,9 @@ var UserSchema = new Schema({
   password: {type: String, required: true },
   admin: {type: Boolean, default: false},
   member: {type: Boolean, default: false},
-  avatar: {type: String, enum: ['cube1', 'cube2', 'cube3', 'cube4', 'cube5'], default: 'cube1'}
+  avatar: {type: String,
+    enum: ['cube1', 'cube2', 'cube3', 'cube4', 'cube5', 'smiley1', 'smiley2', 'smiley3', 'smiley4', 'cookie', 'pizza', 'king'],
+    default: 'cube1'}
 });
 
 UserSchema

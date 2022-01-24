@@ -86,6 +86,10 @@
               <img class='admin filterGreen' src='/images/admin.svg'/>
             </a>
 
+            <a href="/profile">
+              <img class='profile filterGreen' src='/images/user.svg' />
+            </a>
+
 
             <% if(locals.messages){ %>
               <% messages.forEach(function(message) { %>
@@ -121,8 +125,51 @@
                   <span><%= message.getTime %></span>
                   <span><%= message.getDate %></span>
                   </div>
+                <div class='cardReply'>
+                  <form class='formReply' action='/submitreply' method='POST'>
+                    <input type='hidden' name='postId' <%='value='%><%=message._id%> />
+                    <input  type='text' name='reply' placeholder='Reply' required />
+                    <button class='fancyButton'>Submit</button>
+                  </form>
+                </div>
                   </div>
+
               </div>
+              <% if(message.replies){  %>
+                <% for (var i=0; i < message.replies.length; i++ ){ %>
+                  <div class='cardWrapper reply fadeIn'>
+                    <% if(locals.user.admin) { %>
+                      <div class='trash'>
+                        <form action="/deletereply" method="POST">
+                          <input type='hidden' name='replyId' <%='value='%><%=message.replies[i]._id%> />
+                          <input type='image' src='/images/trash.svg' class='filterGreen trash' />
+                        </form>
+                      </div>
+                      <% } %>
+                    <div class='cardTop replyTop'>
+                      <div class='cardImage'>
+                        <img class='filterGreen' <%='src='%><%=message.replies[i].user.getImageURL%>>
+                      </div>
+                      <div class='cardAuthor'>
+                        <span><%= message.replies[i].user.username %></span>
+                      </div>
+                    </div>
+                    <div class='cardBottom'>
+                      <div class='cardContent replyContent'>
+                        <div class='cardText'>
+                          <p>
+                            <%= message.replies[i].messageReply %>
+                          </p>
+                        </div>
+                      </div>
+                    <div class='cardDate'>
+                      <span><%= message.replies[i].getTime %></span>
+                      <span><%= message.replies[i].getDate %></span>
+                      </div>
+                  </div>
+                </div>
+
+              <% }} %>
 
 
             <% }) } %>
@@ -155,7 +202,7 @@
             </div>
             </div>
 
-        <% } %>
+        <% }  %>
 
           </div>
 

@@ -1,11 +1,25 @@
 const User = require('../models/users')
 const { body, validationResult } = require('express-validator')
 const Message = require('../models/messages');
+const Reply = require('../models/replies');
 
 exports.memberpage_get = async function(req, res, next){
   try{
-    const messages = await Message.find().sort([['timeStamp', 'descending']]).populate('user');
-    res.render('member', {user: req.user, errorMessage: req.flash('error',), messages: messages})
+    const messages = await Message.find().sort([['timeStamp', 'descending']])
+    .populate([{
+      path: 'user',
+      model: 'User'
+    }, {
+      path: 'replies',
+      model: 'Replies',
+      populate: {
+        path: 'user',
+        model: 'User'
+      }
+    }]);
+
+    // const replies = await Reply.find().populate('')
+    res.render('member', {user: req.user, errorMessage: req.flash('error',), messages: messages, })
   } catch(err){
     return next(err);
   }
@@ -65,4 +79,40 @@ exports.addMessage_post = [
   }
 
   }
+];
+
+exports.addReply_post = [
+  body('reply').trim().isLength({min:1}).withMessage('Add a message'),
+
+  async (req, res, next) => {
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+      console.log('error', errors);
+      return next(err);
+    }
+    try{
+      const reply = new Reply({
+        messageReply: req.body.reply,
+        user: res.locals.currentUser,
+        messageId: req.body.postId
+      })
+      reply.save(err => {
+        if (err){
+          return next(err)
+        }
+        console.log('reply saved');
+
+        })
+        await Message.findOneAndUpdate(
+          {_id: reply.messageId},
+          {$push: {replies: reply}
+        });
+          console.log('Message with replies updated')
+          res.redirect('/member')
+
+    } catch(err){
+      return next(err)
+    }
+  }
+
 ];

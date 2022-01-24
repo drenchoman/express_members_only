@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 350px;
+  height: 475px;
 }
 
 .avatarWrapper{
@@ -11,6 +11,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 300px;
+  flex-wrap: wrap;
+  margin: 0.5rem
 }
 
 .avatarBox{
@@ -23,9 +26,11 @@
 .avatarImage{
   height: 50px;
   width: 50px;
-  margin: 0 0.5rem;
+  margin: 0.25rem 0.5rem;
   filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(130deg) brightness(111%) contrast(101%);
 }
+
+
 
 input[type="radio"] {
     display: none;

@@ -61,6 +61,38 @@
 
 
           </div>
+
+          <% if(message.replies){  %>
+            <% for (var i=0; i < message.replies.length; i++ ){ %>
+              <div class='cardWrapper reply fadeIn'>
+                <div class='cardTop replyTop'>
+                  <div class='cardImage'>
+                    <img class='filterGreen' src='images/face.svg'/>
+                  </div>
+                  <div class='cardAuthor'>
+                    <span>Anonymous</span>
+                  </div>
+                </div>
+                <div class='cardBottom'>
+                  <div class='cardContent replyContent'>
+                    <div class='cardText'>
+                      <p>
+                        XXX XXXX XXX XX
+                      </p>
+                    </div>
+                  </div>
+                <div class='cardDate'>
+                  <span>XX:XX</span>
+                  <span>XX XXXXX XXXX</span>
+                  </div>
+              </div>
+            </div>
+
+          <% }} %>
+
+
+
+
       <% }) } %>
 
         </div>

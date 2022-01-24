@@ -13,3 +13,46 @@
   align-items: center;
   height: 200px;
 }
+
+.registerForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatarWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  flex-wrap: wrap;
+  margin: 0.5rem
+}
+
+.avatarBox{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatarImage{
+  height: 50px;
+  width: 50px;
+  margin: 0.25rem 0.5rem;
+  filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(130deg) brightness(111%) contrast(101%);
+}
+
+.welcome{
+  text-align: center;
+}
+
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]:checked + img {
+    border: 1px solid red;
+    border-radius: 100%;
+}

@@ -18,6 +18,8 @@ router.get('/member', member_controller.memberpage_get);
 
 router.post('/submitpost', member_controller.addMessage_post);
 
+router.post('/submitreply', member_controller.addReply_post);
+
 // Register page
 
 router.get('/register', register_controller.register_get);
@@ -37,6 +39,12 @@ router.get('/admin', admin_controller.admin_get);
 router.post('/admin', admin_controller.makeAdmin_post);
 
 router.post('/delete', admin_controller.delete_post)
+
+router.post('/deletereply', admin_controller.delete_reply);
+
+router.get('/profile', admin_controller.profile_get);
+
+router.post('/updateprofile', admin_controller.updateProfile)
 
 // Log out
 

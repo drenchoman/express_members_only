@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="/styles/globals.css" rel="stylesheet" type="text/css">
+    <link href="/styles/login.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in</title>
+  </head>
+  <body>
+    <div class='wrapperLog'>
+
+    <% if(!locals.user) {%>
+      <div>
+      <h1 class='header'>What are you doing here?</h1>
+    </div>
+    <a href="/">
+      <img class='home filterGreen' src='/images/home.svg' />
+    </a>
+    <% } else { %>
+    <div class='welcome'>
+      <h1 class='header'>Update profile for <br> <%=user.username%></h1>
+    </div>
+      <label>Update Avatar</label>
+      <form action='/updateprofile' method='POST' class='registerForm'>
+        <div class='avatarWrapper'>
+          <label>
+            <input type='radio' name='avatar' value='cube1' checked />
+            <img class='avatarImage' src='/images/cube1.svg' />
+          </label>
+
+        <label>
+          <input type='radio' name='avatar' value='cube2' />
+          <img class='avatarImage' src='/images/cube2.svg' />
+        </label>
+
+        <label>
+          <input type='radio' name='avatar' value='cube3' />
+          <img class='avatarImage' src='/images/cube3.svg' />
+        </label>
+
+        <label>
+          <input type='radio' name='avatar' value='cube4' />
+          <img class='avatarImage' src='/images/cube4.svg' />
+        </label>
+
+        <label>
+          <input type='radio' name='avatar' value='cube5' />
+          <img class='avatarImage' src='/images/cube5.svg' />
+        </label>
+
+        <label>
+          <input type='radio' name='avatar' value='smiley1' />
+          <img class='avatarImage' src='/images/smiley1.svg' />
+        </label>
+
+        <label>
+          <input type='radio' name='avatar' value='smiley2' />
+          <img class='avatarImage' src='/images/smiley2.svg' />
+        </label>
+
+        <label>
+          <input type='radio' name='avatar' value='smiley3' />
+          <img class='avatarImage' src='/images/smiley3.svg' />
+        </label>
+
+        <label>
+          <input type='radio' name='avatar' value='cookie' />
+          <img class='avatarImage' src='/images/cookie.svg' />
+        </label>
+
+        <label>
+          <input type='radio' name='avatar' value='pizza' />
+          <img class='avatarImage' src='/images/pizza.svg' />
+        </label>
+
+          </div>
+        <button class='fancyButton'>Update</button>
+        </form>
+
+    <a href="/">
+      <img class='home filterGreen' src='/images/home.svg' />
+    </a>
+    <% } %>
+    </div>
+
+  </body>
+
+</html>

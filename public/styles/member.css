@@ -26,6 +26,12 @@ align-items: center;
   border-radius: 1rem 1rem 1rem 1rem;
 }
 
+.reply{
+  max-width: 400px;
+  width: 75%;
+  border: 5px double #A7FF19;
+}
+
 .cardTop{
   display: flex;
   flex-direction: column;
@@ -33,6 +39,7 @@ align-items: center;
   align-items: center;
   padding: 0 1.5rem 0 1rem;
 }
+
 
 .cardBottom{
   display: flex;
@@ -48,6 +55,11 @@ align-items: center;
   width: 350px;
 }
 
+.replyContent{
+  width: 250px;
+  padding-top: 0.5rem;
+}
+
 .cardHeader{
   display: flex;
   flex-direction: column;
@@ -59,13 +71,22 @@ align-items: center;
   flex-direction: column;
 }
 
+.formReply > input{
+  margin: 0.5rem;
+
+}
+.formReply > button{
+  margin: 0.5rem;
+
+}
+
 .cardAuthor{
   display: flex;
   flex-direction: column;
   margin: 0.25rem 0;
 }
 .cardAuthor > span{
-  width: 50%;
+  width: 100%;
 }
 .cardDate{
   display: flex;
@@ -97,6 +118,7 @@ align-items: center;
   height: 15px;
   top: 0.25rem;
   right: 0.25rem;
+  border: none;
 }
 .trash:hover{
   cursor: pointer;
@@ -367,11 +389,19 @@ align-items: center;
 
 @media screen and (max-width: 414px){
   .cardWrapper{
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem;
     flex-direction: column-reverse;
+    max-width: 350px;
+  }
+  .reply{
+    width: 75%;
   }
   .cardContent{
     width: 100%;
+  }
+
+  .cardTop{
+    padding: 0 1rem;
   }
   .wrapper{
     padding: 0 0.75rem;
@@ -381,7 +411,7 @@ align-items: center;
     padding: 0 0.5rem;
   }
   .cardText{
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
   .cardDate{
     padding-right: 0.5rem;
@@ -390,18 +420,36 @@ align-items: center;
     text-align: center;
     margin-top: 3rem;
   }
-  .cardAuthor > span{
-    width: 100%;
+  .formReply{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+  .formReply > input{
+    margin: 0.5rem 0;
+  }
+  .formReply > button{
+    margin: 0.5rem 0;
+
+  }
+
 }
 
 @media screen and (max-width: 375px){
   .cardWrapper{
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem;
     flex-direction: column-reverse;
+    max-width: 350px;
+  }
+  .reply{
+    width: 75%;
   }
   .cardContent{
     width: 100%;
+  }
+  .cardTop{
+    padding: 0 1rem;
   }
   .wrapper{
     padding: 0 0.75rem;
@@ -411,7 +459,7 @@ align-items: center;
     padding: 0 0.5rem;
   }
   .cardText{
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
   .cardDate{
     padding-right: 0.5rem;
@@ -420,18 +468,36 @@ align-items: center;
     text-align: center;
     margin-top: 3rem;
   }
-  .cardAuthor > span{
-    width: 100%;
+  .formReply{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+  .formReply > input{
+    margin: 0.5rem 0;
+  }
+  .formReply > button{
+    margin: 0.5rem 0;
+
+  }
+
 }
 
 @media screen and (max-width: 325px){
   .cardWrapper{
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem;
     flex-direction: column-reverse;
+    max-width: 300px;
+  }
+  .reply{
+    width: 75%;
   }
   .cardContent{
     width: 100%;
+  }
+  .cardTop{
+    padding: 0 1rem;
   }
   .wrapper{
     padding: 0 0.75rem;
@@ -441,7 +507,7 @@ align-items: center;
     padding: 0 0.5rem;
   }
   .cardText{
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
   .cardDate{
     padding-right: 0.5rem;
@@ -450,7 +516,19 @@ align-items: center;
     text-align: center;
     margin-top: 3rem;
   }
-  .cardAuthor > span{
-    width: 100%;
+
+  .formReply{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+  .formReply > input{
+    padding: 0.5rem 0;
+  }
+  .formReply > button{
+    margin: 0.5rem 0;
+
+  }
+
 }
