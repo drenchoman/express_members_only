@@ -125,16 +125,11 @@
                   <span><%= message.getTime %></span>
                   <span><%= message.getDate %></span>
                   </div>
-                <div class='cardReply'>
-                  <form class='formReply' action='/submitreply' method='POST'>
-                    <input type='hidden' name='postId' <%='value='%><%=message._id%> />
-                    <input  type='text' name='reply' placeholder='Reply' required />
-                    <button class='fancyButton'>Submit</button>
-                  </form>
-                </div>
+
                   </div>
 
               </div>
+
               <% if(message.replies){  %>
                 <% for (var i=0; i < message.replies.length; i++ ){ %>
                   <div class='cardWrapper reply fadeIn'>
@@ -170,7 +165,13 @@
                 </div>
 
               <% }} %>
-
+              <div class='cardReply'>
+                <form class='formReply' action='/submitreply' method='POST'>
+                  <input type='hidden' name='postId' <%='value='%><%=message._id%> />
+                  <input  type='text' name='reply' placeholder='Reply' required />
+                  <button class='fancyButton'>Submit</button>
+                </form>
+              </div>
 
             <% }) } %>
 
