@@ -25,6 +25,15 @@ exports.memberpage_get = async function(req, res, next){
   }
 };
 
+exports.userProfile_get = async function(req, res, next){
+  try{
+    const profile = await User.findOne({_id: req.params.id}).populate('messages')
+    res.render('memberprofile', {avatar: profile.getImageURL, name:profile.username, messages: profile.messages})
+  } catch(err){
+    return next(err)
+  }
+}
+
 exports.confirmMembership_post = [
   body('passcode').trim().isLength({max: 4}).escape().custom(async(value,{ req }) => {
     if( value !== process.env.DB_MEMBER_PASSCODE){
@@ -73,6 +82,10 @@ exports.addMessage_post = [
       console.log('message saved');
       res.redirect('/member');
     })
+    await User.findOneAndUpdate(
+      {_id: message.user._id},
+      {$push: {messages: message}}
+    )
 
   } catch(err){
     return next(err);

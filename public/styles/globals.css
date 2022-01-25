@@ -65,40 +65,43 @@ p, span, li{
   color: #ffffff;
 }
 
-.home{
-  position: absolute;
-  top: 2.5%;
-  left: 2.5%;
-  width: 50px;
-  height: 50px;
+.nav{
+  display: flex;
+  width: 100%;
+  /* height: 1rem; */
+  justify-content: flex-end;
+}
+
+
+
+.homea{
+  flex: auto;
+}
+
+.home, .admin, .profile, .logout{
+  margin: 0.5rem 1rem 0 0.5rem;
 }
 
 .home:hover{
   cursor: pointer;
 }
 
-.admin{
-  position: absolute;
-  top: 2.5%;
-  right: 2.5%;
-  width: 50px;
-  height: 50px;
+.admin, .profile{
+  align-self: flex-end;
 }
+
 
 .admin:hover{
   cursor:pointer
 }
 
-.profile{
-  position: absolute;
-  top: 2.5%;
-  right: 12.5%;
-  width: 50px;
-  height: 50px;
-}
 
 .filterGreen{
 filter: invert(58%) sepia(21%) saturate(7213%) hue-rotate(78deg) brightness(102%) contrast(94%);
+}
+
+.filterRed{
+filter: invert(15%) sepia(100%) saturate(7248%) hue-rotate(8deg) brightness(94%) contrast(107%);
 }
 
 .wrapperLog{
@@ -146,25 +149,11 @@ filter: invert(58%) sepia(21%) saturate(7213%) hue-rotate(78deg) brightness(102%
       }
 
 @media screen and (max-width: 414px){
-  .home{
-    width: 25px;
-    height: 25px;
-    left: 0.75rem;
-  }
-  .admin{
-    width: 25px;
-    height: 25px;
-    right: 0.75em;
-  }
-  .profile{
-    width: 25px;
-    height: 25px;
-    right: 3em;
-  }
+
   p{
     font-size: 18px;
   }
-  .wrapperLog{
+  .wrapperLog, .homeWrap{
     padding: 0 0.75rem;
   }
   .header{
@@ -173,25 +162,11 @@ filter: invert(58%) sepia(21%) saturate(7213%) hue-rotate(78deg) brightness(102%
 }
 
 @media screen and (max-width: 375px){
-  .home{
-    width: 25px;
-    height: 25px;
-    left: 0.75rem;
-  }
-  .admin{
-    width: 25px;
-    height: 25px;
-    right: 0.75em;
-  }
-  .profile{
-    width: 25px;
-    height: 25px;
-    right: 3em;
-  }
+
   p{
     font-size: 18px;
   }
-  .wrapperLog{
+  .wrapperLog, .homeWrap{
     padding: 0 0.75rem;
   }
   .header{
@@ -200,25 +175,8 @@ filter: invert(58%) sepia(21%) saturate(7213%) hue-rotate(78deg) brightness(102%
 }
 
 @media screen and (max-width: 325px){
-  .home{
-    width: 25px;
-    height: 25px;
-    left: 0.75rem;
-  }
-  .admin{
-    width: 25px;
-    height: 25px;
-    right: 0.75em;
-  }
 
-  .profile{
-    width: 25px;
-    height: 25px;
-    right: 3em;
-  }
-
-
-  .wrapperLog{
+  .wrapperLog, .homeWrap{
     padding: 0 0.75rem;
   }
 

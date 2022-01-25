@@ -9,15 +9,19 @@
     <title>Admin</title>
   </head>
   <body>
+    <nav class='nav'>
+      <a class='homea' href="/">
+        <img class='home filterGreen' src='/images/home.svg' />
+      </a>
+    </nav>
     <div class='wrapperLog'>
 
     <% if(!locals.user) {%>
       <div>
+
       <h1 class='header'>What are you doing here?</h1>
     </div>
-    <a href="/">
-      <img class='home filterGreen' src='/images/home.svg' />
-    </a>
+
     <%} else if(!locals.user.admin){ %>
       <div>
         <h1 class='header'><%= title %></h1>
@@ -34,11 +38,7 @@
               <span><%= locals.message %></span>
             <% } %>
             <button class='fancyButton'>Log in</button>
-            <a href="/">
-              <img class='home filterGreen' src='/images/home.svg' />
-            </a>
-
-        </form>
+          </form>
 
       </div>
 
@@ -46,9 +46,7 @@
     <div>
       <h1 class='header'>You are already an admin</h1>
     </div>
-    <a href="/">
-      <img class='home filterGreen' src='/images/home.svg' />
-    </a>      <% } %>
+      <% } %>
     </div>
 
   </body>

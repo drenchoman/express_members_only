@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/styles/globals.css" rel="stylesheet" type="text/css">
     <link href="/styles/member.css" rel="stylesheet" type="text/css">
-
+    <link href="/styles/animation.css" rel="stylesheet" type="text/css">
   </meta(name>
     <title>Hacker Club</title>
   </head>
@@ -13,6 +13,11 @@
 
       <% if(locals.user){ %>
           <% if (!locals.user.member) { %>
+            <nav class='nav homeWrap'>
+              <a class='homea' href="/">
+                <img class='home filterGreen' src='/images/home.svg' />
+              </a>
+            </nav>
       <div class='wrapperLog'>
         <div>
           <h2 class='header'>Thanks for signing up!</h2>
@@ -52,9 +57,6 @@
             <% if (locals.passcodeError) {%>
             <span> <%= locals.passcodeError %></span>
             <%}%>
-            <a href="/">
-              <img class='home filterGreen' src='/images/home.svg' />
-            </a>
 
             <button class='fancyButton'>Enter</button>
 
@@ -64,11 +66,24 @@
       </div>
         <% } else{ %>
           <div class='wrapper'>
+            <nav class='nav'>
+              <a class='homea' href="/">
+                <img class='home filterGreen' src='/images/home.svg' />
+              </a>
+              <a href="/admin">
+                <img class='admin filterGreen' src='/images/admin.svg'/>
+              </a>
+
+              <a href="/profile">
+                <img class='profile filterGreen' src='/images/user.svg' />
+              </a>
+              <a href="/logout">
+                <img class='logout filterRed' src='/images/logout.svg' />
+              </a>
+            </nav>
             <div class='welcome'>
               <h1 class='header blink'> Welcome <br> <%= user.username %></h1>
-              <button class='fancyButton logout'>
-                <a href="/logout">Logout</a>
-              </button>
+
             </div>
             <div>
               <form class='messageWrapper' method='POST' action='/submitpost'>
@@ -79,16 +94,6 @@
                 <button class='fancyButton'>Submit</button>
               </form>
             </div>
-            <a href="/">
-              <img class='home filterGreen' src='/images/home.svg' />
-            </a>
-            <a href="/admin">
-              <img class='admin filterGreen' src='/images/admin.svg'/>
-            </a>
-
-            <a href="/profile">
-              <img class='profile filterGreen' src='/images/user.svg' />
-            </a>
 
 
             <% if(locals.messages){ %>
@@ -107,7 +112,9 @@
                     <img class='filterGreen' <%='src='%><%=message.user.getImageURL%>>
                   </div>
                   <div class='cardAuthor'>
-                    <span><%= message.user.username %></span>
+                    <a <%='href='%><%=message.user.getProfileUrl%>>
+                      <span><%= message.user.username %></span>
+                    </a>
                   </div>
                 </div>
                 <div class='cardBottom'>
@@ -146,7 +153,9 @@
                         <img class='filterGreen' <%='src='%><%=message.replies[i].user.getImageURL%>>
                       </div>
                       <div class='cardAuthor'>
-                        <span><%= message.replies[i].user.username %></span>
+                        <a <%='href='%><%=message.replies[i].user.getProfileUrl%>>
+                          <span><%= message.replies[i].user.username %></span>
+                        </a>
                       </div>
                     </div>
                     <div class='cardBottom'>
@@ -179,6 +188,11 @@
           </div>
 
         <% } else{ %>
+          <nav class='nav homeWrap'>
+            <a class='homea' href="/">
+              <img class='home filterGreen' src='/images/home.svg' />
+            </a>
+          </nav>
           <div class='wrapperLog'>
             <div>
               <h1 class='header'>Please log in</h1>
@@ -194,12 +208,16 @@
                   <% if(locals.errorMessage){ %>
                     <span><%= locals.errorMessage %></span>
                   <% } %>
-                  <a href="/">
-                    <img class='home filterGreen' src='/images/home.svg' />
-                  </a>
 
                   <button class='fancyButton'>Log in</button>
               </form>
+            </div>
+            <div class='hackerAnimation'>
+              <span class='number'>1</span>
+              <span class='number2'>0</span>
+              <span class='number3'>1</span>
+              <span class='number4'>0</span>
+              <span class='number5'>1</span>
             </div>
             </div>
 

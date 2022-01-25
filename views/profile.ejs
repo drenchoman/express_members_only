@@ -8,16 +8,13 @@
     <title>Profile</title>
   </head>
   <body>
+    <nav class='nav'>
+      <a class='homea' href="/">
+        <img class='home filterGreen' src='/images/home.svg' />
+      </a>
+    </nav>
     <div class='wrapperLog'>
-
-    <% if(!locals.user) {%>
-      <div>
-      <h1 class='header'>What are you doing here?</h1>
-    </div>
-    <a href="/">
-      <img class='home filterGreen' src='/images/home.svg' />
-    </a>
-    <% } else { %>
+      <% if(locals.user) {%>
     <div class='welcome'>
       <h1 class='header'>Update profile for <br> <%=user.username%></h1>
     </div>
@@ -78,9 +75,10 @@
         <button class='fancyButton'>Update</button>
         </form>
 
-    <a href="/">
-      <img class='home filterGreen' src='/images/home.svg' />
-    </a>
+    <% } else { %>
+      <div class='welcome'>
+        <h1 class='header'>What are you doing here?</h1>
+      </div>
     <% } %>
     </div>
 

@@ -7,6 +7,7 @@ var UserSchema = new Schema({
   password: {type: String, required: true },
   admin: {type: Boolean, default: false},
   member: {type: Boolean, default: false},
+  messages:[{type: Schema.Types.ObjectId, ref: 'Message'}],
   avatar: {type: String,
     enum: ['cube1', 'cube2', 'cube3', 'cube4', 'cube5', 'smiley1', 'smiley2', 'smiley3', 'smiley4', 'cookie', 'pizza', 'king'],
     default: 'cube1'}
@@ -15,7 +16,14 @@ var UserSchema = new Schema({
 UserSchema
   .virtual('getImageURL')
   .get(function () {
-    const url = 'images/' + this.avatar + '.svg'
+    const url = '/images/' + this.avatar + '.svg'
+    return url
+  });
+
+UserSchema
+  .virtual('getProfileUrl')
+  .get(function () {
+    const url = '/members/' + this._id
     return url
   });
 

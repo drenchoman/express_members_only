@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="/styles/globals.css" rel="stylesheet" type="text/css">
+    <link href="/styles/login.css" rel="stylesheet" type="text/css">
+    <link href="/styles/member.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile</title>
+  </head>
+  <body>
+    <nav class='nav'>
+      <a class='homea' href="/">
+        <img class='home filterGreen' src='/images/home.svg' />
+      </a>
+    </nav>
+    <div class='wrapperLog'>
+      <div class='welcome'>
+        <h1 class='header'>Club Member <br /> <%=name%></h1>
+      </div>
+      <div class='cardImage'>
+        <img class='filterGreen' <%='src='%><%=avatar%>>
+      </div>
+      <div class='messageTotal' >
+        <h2>Total Messages: <%=messages.length%></h2>
+        </div>
+    </div>
+
+  </body>
+
+</html>

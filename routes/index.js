@@ -42,6 +42,8 @@ router.post('/delete', admin_controller.delete_post)
 
 router.post('/deletereply', admin_controller.delete_reply);
 
+router.get('/members/:id', member_controller.userProfile_get);
+
 router.get('/profile', admin_controller.profile_get);
 
 router.post('/updateprofile', admin_controller.updateProfile)
