@@ -9,18 +9,23 @@
     <title>Homepage</title>
   </head>
   <body>
-    <div class='wrapper'>
-    <nav class='nav'>
+    <nav class='nav homeWrap'>
         <a class='homea' href="/">
           <img class='home filterGreen' src='/images/home.svg' />
         </a>
+        <a class='headerGit' href='https://github.com/drenchoman'>
+          <img class='filterWhite' src='/images/github.svg' />
+          <span>Drenchoman</span>
+        </a>
       </nav>
-      <div class='indexHeader'>
+    <div class='wrapper'>
+      <div class='indexHeader animateFade delay-1'>
         <h1 class='blink'>Hacker Club</h1>
       </div>
-      <div class='welcome'>
-        <h2>Register or log in to make a post.</h2>
-        <div class='loginOptions'>
+      <div class='welcome animateFade'>
+        <h2 class='welcomeMessage'>Register or log in to make a post.</h2>
+      </div>
+        <div class='loginOptions animateFade delay-2'>
           <button class='fancyButton'>
             <a href="/login">Login</a>
           </button>
@@ -29,11 +34,10 @@
           </button>
         </div>
 
-      </div>
 
       <% if(locals.messages){ %>
         <% messages.forEach(function(message) { %>
-        <div class='cardWrapper fadeIn'>
+        <div class='cardWrapper animateFade delay-3'>
           <div class='cardTop'>
             <div class='cardImage'>
               <img class='filterGreen' src='images/face.svg'/>
@@ -106,6 +110,13 @@
         <span class='number5'>1</span>
       </div>
         </div>
+        <footer class='footer'>
+          <span class='quote'>Hackers often describe what they do as playfully creative problem solving.</span>
+          <a class='footerGit' href='https://github.com/drenchoman'>
+            <img class='filterWhite' src='/images/github.svg' />
+            <span>Drenchoman</span>
+          </a>
+        </footer>
 
   </body>
 </html>

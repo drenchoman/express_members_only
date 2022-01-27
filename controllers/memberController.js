@@ -18,17 +18,25 @@ exports.memberpage_get = async function(req, res, next){
       }
     }]);
 
-    // const replies = await Reply.find().populate('')
     res.render('member', {user: req.user, errorMessage: req.flash('error',), messages: messages, })
   } catch(err){
     return next(err);
   }
 };
 
+exports.allMembers_get = async function(req, res, next){
+  try{
+    const members = await User.find();
+    res.render('allmembers', {members: members, user: res.locals.currentUser})
+  } catch(err){
+    return next(err);
+  }
+}
+
 exports.userProfile_get = async function(req, res, next){
   try{
     const profile = await User.findOne({_id: req.params.id}).populate('messages')
-    res.render('memberprofile', {avatar: profile.getImageURL, name:profile.username, messages: profile.messages})
+    res.render('memberprofile', {avatar: profile.getImageURL, name:profile.username, messages: profile.messages, user:res.locals.currentUser})
   } catch(err){
     return next(err)
   }

@@ -61,31 +61,40 @@
             <button class='fancyButton'>Enter</button>
 
           </form>
+          <div class='hackerAnimation'>
+            <span class='number'>1</span>
+            <span class='number2'>0</span>
+            <span class='number3'>1</span>
+            <span class='number4'>0</span>
+            <span class='number5'>1</span>
+          </div>
 
       </div>
-      </div>
+
         <% } else{ %>
+          <nav class='nav homeWrap'>
+            <a class='homea' href="/">
+              <img class='home filterGreen' src='/images/home.svg' />
+            </a>
+            <a href="/admin">
+              <img class='admin filterGreen' src='/images/admin.svg'/>
+            </a>
+            <a href="/members">
+              <img class='members filterGreen' src='/images/members.svg'/>
+            </a>
+            <a href="/profile">
+              <img class='profile filterGreen' src='/images/user.svg' />
+            </a>
+            <a href="/logout">
+              <img class='logout filterRed' src='/images/logout.svg' />
+            </a>
+          </nav>
           <div class='wrapper'>
-            <nav class='nav'>
-              <a class='homea' href="/">
-                <img class='home filterGreen' src='/images/home.svg' />
-              </a>
-              <a href="/admin">
-                <img class='admin filterGreen' src='/images/admin.svg'/>
-              </a>
-
-              <a href="/profile">
-                <img class='profile filterGreen' src='/images/user.svg' />
-              </a>
-              <a href="/logout">
-                <img class='logout filterRed' src='/images/logout.svg' />
-              </a>
-            </nav>
-            <div class='welcome'>
+            <div class='welcome animateFade'>
               <h1 class='header blink'> Welcome <br> <%= user.username %></h1>
 
             </div>
-            <div>
+            <div class='animateFade delay-1'>
               <form class='messageWrapper' method='POST' action='/submitpost'>
                 <label for='title'>Title</label>
                 <input class='messageTitle' type='text' placeholder='Title' name='title' required  />
@@ -98,11 +107,12 @@
 
             <% if(locals.messages){ %>
               <% messages.forEach(function(message) { %>
-              <div class='cardWrapper fadeIn'>
+              <div class='cardWrapper animateFade delay-3'>
                 <% if(locals.user.admin) { %>
                   <div class='trash'>
                     <form action="/delete" method="POST">
                       <input type='hidden' name='messageId' <%='value='%><%=message._id%> />
+                      <input type='hidden' name='userId' <%='value='%><%=message.user._id%> />
                       <input type='image' src='/images/trash.svg' class='filterGreen trash' />
                     </form>
                   </div>
@@ -112,9 +122,15 @@
                     <img class='filterGreen' <%='src='%><%=message.user.getImageURL%>>
                   </div>
                   <div class='cardAuthor'>
+                    <% if (message.user.username === 'drenchoman') { %>
+                    <a <%='href='%><%=message.user.getProfileUrl%>>
+                      <span class='filterRed'><%= message.user.username %></span>
+                    </a>
+                  <% } else { %>
                     <a <%='href='%><%=message.user.getProfileUrl%>>
                       <span><%= message.user.username %></span>
                     </a>
+                <%  } %>
                   </div>
                 </div>
                 <div class='cardBottom'>
@@ -144,6 +160,7 @@
                       <div class='trash'>
                         <form action="/deletereply" method="POST">
                           <input type='hidden' name='replyId' <%='value='%><%=message.replies[i]._id%> />
+                          <input type='hidden' name='messageId' <%='value='%><%=message._id%> />
                           <input type='image' src='/images/trash.svg' class='filterGreen trash' />
                         </form>
                       </div>
@@ -185,7 +202,16 @@
             <% }) } %>
 
             <% } %>
+
           </div>
+
+          <footer class='footer'>
+            <span class='quote'>Hackers often describe what they do as playfully creative problem solving.</span>
+            <a class='footerGit' href='https://github.com/drenchoman'>
+              <img class='filterGreen' src='/images/github.svg' />
+              <span>Drenchoman</span>
+            </a>
+          </footer>
 
         <% } else{ %>
           <nav class='nav homeWrap'>
@@ -220,10 +246,17 @@
               <span class='number5'>1</span>
             </div>
             </div>
+            <footer class='footer'>
+              <span class='quote'>Hackers often describe what they do as playfully creative problem solving.</span>
+              <a class='footerGit' href='https://github.com/drenchoman'>
+                <img class='filterGreen' src='/images/github.svg' />
+                <span>Drenchoman</span>
+              </a>
+            </footer>
 
         <% }  %>
 
-          </div>
+
 
 
 

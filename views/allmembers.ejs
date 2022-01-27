@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="/styles/globals.css" rel="stylesheet" type="text/css">
+    <link href="/styles/login.css" rel="stylesheet" type="text/css">
+    <link href="/styles/member.css" rel="stylesheet" type="text/css">
+    <link href="/styles/animation.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hacker Club Members</title>
+  </head>
+  <body>
+    <nav class='nav homeWrap'>
+      <a class='homea' href="/">
+        <img class='home filterGreen' src='/images/home.svg' />
+      </a>
+      <% if (locals.user) { %>
+        <a href="/admin">
+          <img class='admin filterGreen' src='/images/admin.svg'/>
+        </a>
+        <a href="/members">
+          <img class='members filterGreen' src='/images/members.svg'/>
+        </a>
+        <a href="/profile">
+          <img class='profile filterGreen' src='/images/user.svg' />
+        </a>
+        <a href="/logout">
+          <img class='logout filterRed' src='/images/logout.svg' />
+        </a>
+    <% } %>
+    </nav>
+    <div class='wrapper'>
+      <% if (locals.user) { %>
+        <div class='welcome'>
+          <h1 class='header animatePop'>Total Members</h1>
+          <span class='animatePop delay-2'><%=members.length%></span>
+        </div>
+        <div class='membersWrapper'>
+
+
+        <% members.forEach(function(member) { %>
+          <div class='membersBubble animatePop delay-3'>
+            <a <%='href='%><%=member.getProfileUrl%>>
+              <% if (member.username === 'drenchoman') { %>
+              <h3 class='filterRed'><%=member.username%></h3>
+            <% } else { %>
+              <h3 class='memberName'><%=member.username%></h3>
+          <%  } %>
+            <div class='cardImage'>
+              <img class='filterGreen' <%='src='%><%=member.getImageURL%>>
+
+              </div>
+            </a>
+          </div>
+
+        <% }) %>
+        <div class='hackerAnimation'>
+          <span class='number'>1</span>
+          <span class='number2'>0</span>
+          <span class='number3'>1</span>
+          <span class='number4'>0</span>
+          <span class='number5'>1</span>
+        </div>
+        </div>
+        <% } else { %>
+          <div class='wrapperLog homeWrap'>
+            <div class='welcome'>
+              <h1 class='header'>Log in to see members</h1>
+            </div>
+          </div>
+          <div class='hackerAnimation'>
+            <span class='number'>1</span>
+            <span class='number2'>0</span>
+            <span class='number3'>1</span>
+            <span class='number4'>0</span>
+            <span class='number5'>1</span>
+          </div>
+      <% } %>
+      </div>
+      <footer class='footer'>
+        <span class='quote'>Hackers often describe what they do as playfully creative problem solving.</span>
+        <a class='footerGit' href='https://github.com/drenchoman'>
+          <img class='filterWhite' src='/images/github.svg' />
+          <span>Drenchoman</span>
+        </a>
+      </footer>
+
+
+  </body>
+
+</html>

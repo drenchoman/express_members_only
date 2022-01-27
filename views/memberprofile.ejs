@@ -5,26 +5,53 @@
     <link href="/styles/globals.css" rel="stylesheet" type="text/css">
     <link href="/styles/login.css" rel="stylesheet" type="text/css">
     <link href="/styles/member.css" rel="stylesheet" type="text/css">
+    <link href="/styles/animation.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Profile</title>
   </head>
   <body>
-    <nav class='nav'>
+    <nav class='nav homeWrap'>
       <a class='homea' href="/">
         <img class='home filterGreen' src='/images/home.svg' />
+        <% if (locals.user) { %>
+          <a href="/admin">
+            <img class='admin filterGreen' src='/images/admin.svg'/>
+          </a>
+          <a href="/members">
+            <img class='members filterGreen' src='/images/members.svg'/>
+          </a>
+          <a href="/profile">
+            <img class='profile filterGreen' src='/images/user.svg' />
+          </a>
+          <a href="/logout">
+            <img class='logout filterRed' src='/images/logout.svg' />
+          </a>
+      <% } %>
       </a>
     </nav>
-    <div class='wrapperLog'>
+    <div class='wrapperLog homeWrap'>
       <div class='welcome'>
-        <h1 class='header'>Club Member <br /> <%=name%></h1>
+        <h1 class='header animateFade'>Club Member</h1>
+        <span class='animateFade'><%=name%></span>
       </div>
-      <div class='cardImage'>
+      <div class='cardImage profileImage animateFade delay-1'>
         <img class='filterGreen' <%='src='%><%=avatar%>>
       </div>
-      <div class='messageTotal' >
-        <h2>Total Messages: <%=messages.length%></h2>
+      <div class='messageTotal ' >
+        <h2 class='animateFade delay-2'>Total Messages</h2>
+        <span class='animateFade delay-2'><%=messages.length%></span>
         </div>
+      <a href="/members">
+        <button class='fancyButton animateFade'>All Members</button>
+      </a>
     </div>
+    <footer class='footer'>
+      <span class='quote'>Hackers often describe what they do as playfully creative problem solving.</span>
+      <a class='footerGit' href='https://github.com/drenchoman'>
+        <img class='filterWhite' src='/images/github.svg' />
+        <span>Drenchoman</span>
+      </a>
+    </footer>
 
   </body>
 

@@ -33,26 +33,49 @@ exports.makeAdmin_post = [
 ]
 
 exports.delete_post = function(req, res, next){
-    const id= req.body.messageId
-    Message.findByIdAndDelete(id, function(err, docs){
-      if (err){
-        return next(err);
-      }
-      console.log('Deleted : ', docs)
-      res.redirect('/member')
+    const messageId= req.body.messageId
+    User.findOneAndUpdate(
+      {_id: req.body.userId},
+      {$pull: {
+        messages: req.body.messageId
+        }
+      }, function(err, id){
+        if (err){
+          return next(err)
+        }
+        Message.findByIdAndDelete(messageId, function(err, docs){
+          if (err){
+            return next(err);
+          }
+          console.log('Deleted : ', docs)
+          res.redirect('/member')
+
+
+
     })
-  }
+  })
+};
 
   exports.delete_reply = function(req, res, next){
     const id =req.body.replyId
-    Reply.findByIdAndDelete(id, function(err, docs){
-      if (err){
-        return next(err);
+    Message.findOneAndUpdate(
+      {_id: req.body.messageId},
+      {$pull:{
+        replies: id
       }
-      console.log('Deleted: ', docs)
-      res.redirect('/member')
+    }, function (err, replyId){
+      if (err){
+        return next(err)
+      }
+      Reply.findByIdAndDelete(id, function(err, docs){
+        if (err){
+          return next(err);
+        }
+        console.log('Deleted: ', docs)
+        res.redirect('/member')
     })
-  }
+    })
+  };
 
 exports.profile_get = function(req, res, next){
   res.render('profile', {user: res.locals.currentUser})

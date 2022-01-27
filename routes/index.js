@@ -16,6 +16,10 @@ router.post('/member', member_controller.confirmMembership_post);
 
 router.get('/member', member_controller.memberpage_get);
 
+router.get('/members/:id', member_controller.userProfile_get);
+
+router.get('/members', member_controller.allMembers_get);
+
 router.post('/submitpost', member_controller.addMessage_post);
 
 router.post('/submitreply', member_controller.addReply_post);
@@ -42,11 +46,10 @@ router.post('/delete', admin_controller.delete_post)
 
 router.post('/deletereply', admin_controller.delete_reply);
 
-router.get('/members/:id', member_controller.userProfile_get);
 
 router.get('/profile', admin_controller.profile_get);
 
-router.post('/updateprofile', admin_controller.updateProfile)
+router.post('/updateprofile', admin_controller.updateProfile);
 
 // Log out
 

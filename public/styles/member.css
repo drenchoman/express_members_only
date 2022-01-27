@@ -86,9 +86,14 @@ align-items: center;
   flex-direction: column;
   margin: 0.25rem 0;
 }
-.cardAuthor > span{
-  width: 100%;
+.cardAuthor > a{
+  text-decoration: none;
 }
+
+.cardAuthor:hover{
+  border-bottom: 1px solid #20C20E;
+}
+
 .cardDate{
   display: flex;
   flex-direction: column;
@@ -103,6 +108,12 @@ align-items: center;
   justify-content: center;
   align-items: center;
   max-width: 100%;
+}
+
+.profileImage{
+  border: 5px double #20C20E;
+    padding: 1rem;
+    border-radius: 100%;
 }
 
 .cardImage > img{
@@ -126,16 +137,16 @@ align-items: center;
 }
 
 
-.logout{
-  margin-bottom: 0.5rem;
-}
-
 .messageWrapper{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 200px;
+}
+
+.messageWrapper > button {
+  margin: 0.5rem 0;
 }
 
 .messageTitle, .messageText{
@@ -211,6 +222,7 @@ align-items: center;
   display: block;
   position: absolute;
 }
+
 
 @keyframes animation-1 {
     0% { bottom: 0;}
@@ -385,6 +397,66 @@ align-items: center;
     animation-iteration-count: infinite;
     -webkit-animation: animation-4 4s ease-in-out infinite;
 
+}
+
+/* MEMBER PROFILE */
+.messageTotal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.messageTotal > span {
+  font-size: 2.5rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #20C20E;
+  margin: 1rem 0;
+}
+
+
+.welcome > span {
+  font-size: 2rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #20C20E;
+  margin: 0.5rem 0 1rem 0;
+}
+/* MEMBERS PAGE */
+
+.membersWrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.membersBubble{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 300px;
+  height: 100%;
+  max-height: 150px;
+  width: 100%;
+  border: 5px double #20C20E;
+  border-radius: 20px;
+  margin: 1.5rem 1rem;
+  padding: 1.5rem 1rem 1rem 1rem;
+
+}
+
+.memberName:hover{
+  color: white;
+}
+
+a > .cardImage {
+  margin: 1rem 0;
+}
+
+.membersBubble > a {
+  text-decoration: none;
 }
 
 

@@ -9,10 +9,24 @@
     <title>Admin</title>
   </head>
   <body>
-    <nav class='nav'>
+    <nav class='nav homeWrap'>
       <a class='homea' href="/">
         <img class='home filterGreen' src='/images/home.svg' />
       </a>
+      <% if (locals.user) { %>
+        <a href="/admin">
+          <img class='admin filterGreen' src='/images/admin.svg'/>
+        </a>
+        <a href="/members">
+          <img class='members filterGreen' src='/images/members.svg'/>
+        </a>
+        <a href="/profile">
+          <img class='profile filterGreen' src='/images/user.svg' />
+        </a>
+        <a href="/logout">
+          <img class='logout filterRed' src='/images/logout.svg' />
+        </a>
+    <% } %>
     </nav>
     <div class='wrapperLog'>
 
@@ -46,8 +60,16 @@
     <div>
       <h1 class='header'>You are already an admin</h1>
     </div>
+
       <% } %>
     </div>
+    <footer class='footer'>
+      <span class='quote'>Hackers often describe what they do as playfully creative problem solving.</span>
+      <a class='footerGit' href='https://github.com/drenchoman'>
+        <img class='filterWhite' src='/images/github.svg' />
+        <span>Drenchoman</span>
+      </a>
+    </footer>
 
   </body>
 
