@@ -36,7 +36,7 @@ exports.allMembers_get = async function(req, res, next){
 exports.userProfile_get = async function(req, res, next){
   try{
     const profile = await User.findOne({_id: req.params.id}).populate('messages')
-    res.render('memberprofile', {avatar: profile.getImageURL, name:profile.username, messages: profile.messages, user:res.locals.currentUser})
+    res.render('memberprofile', {avatar: profile.getImageURL, name:profile.username, messages: profile.messages, profid: profile._id, user:res.locals.currentUser})
   } catch(err){
     return next(err)
   }

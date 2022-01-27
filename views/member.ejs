@@ -118,19 +118,17 @@
                   </div>
                   <% } %>
                 <div class='cardTop'>
+                  <a <%='href='%><%=message.user.getProfileUrl%>>
                   <div class='cardImage'>
                     <img class='filterGreen' <%='src='%><%=message.user.getImageURL%>>
                   </div>
                   <div class='cardAuthor'>
                     <% if (message.user.username === 'drenchoman') { %>
-                    <a <%='href='%><%=message.user.getProfileUrl%>>
-                      <span class='filterRed'><%= message.user.username %></span>
-                    </a>
-                  <% } else { %>
-                    <a <%='href='%><%=message.user.getProfileUrl%>>
+                      <span class='filterRed'><%= message.user.username%></span>
+                    <% } else { %>
                       <span><%= message.user.username %></span>
+                    <% } %>
                     </a>
-                <%  } %>
                   </div>
                 </div>
                 <div class='cardBottom'>
@@ -166,12 +164,16 @@
                       </div>
                       <% } %>
                     <div class='cardTop replyTop'>
-                      <div class='cardImage'>
-                        <img class='filterGreen' <%='src='%><%=message.replies[i].user.getImageURL%>>
-                      </div>
+                      <a <%='href='%><%=message.replies[i].user.getProfileUrl%>>
+                        <div class='cardImage'>
+                          <img class='filterGreen' <%='src='%><%=message.replies[i].user.getImageURL%>>
+                        </div>
                       <div class='cardAuthor'>
-                        <a <%='href='%><%=message.replies[i].user.getProfileUrl%>>
+                        <% if (message.replies[i].user.username === 'drenchoman') { %>
+                        <span class='filterRed'><%= message.replies[i].user.username %></span>
+                        <% } else { %>
                           <span><%= message.replies[i].user.username %></span>
+                        <% } %>
                         </a>
                       </div>
                     </div>
@@ -203,7 +205,16 @@
 
             <% } %>
 
+            <div class='hackerAnimation'>
+              <span class='number'>1</span>
+              <span class='number2'>0</span>
+              <span class='number3'>1</span>
+              <span class='number4'>0</span>
+              <span class='number5'>1</span>
+            </div>
+
           </div>
+
 
           <footer class='footer'>
             <span class='quote'>Hackers often describe what they do as playfully creative problem solving.</span>

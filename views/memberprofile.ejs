@@ -42,10 +42,57 @@
         <h2 class='animateFade delay-2'>Total Messages</h2>
         <span class='animateFade delay-2'><%=messages.length%></span>
         </div>
-      <a href="/members">
-        <button class='fancyButton animateFade'>All Members</button>
-      </a>
-    </div>
+        <a href="/members">
+          <button class='fancyButton animateFade'>All Members</button>
+        </a>
+      </div>
+      <div class='wrapper profileWrapper animateFade delay-3'>
+
+        <% messages.forEach(function(message){ %>
+        <div class='cardWrapper'>
+          <% if(locals.user.admin || locals.user.username === name ) { %>
+            <div class='trash'>
+              <form action="/delete" method="POST">
+                <input type='hidden' name='messageId' <%='value='%><%=message._id%> />
+                <input type='hidden' name='userId' <%='value='%><%=profid%> />
+                <input type='image' src='/images/trash.svg' class='filterGreen trash' />
+              </form>
+            </div>
+            <% } %>
+            <div class='cardTop'>
+              <div class='cardImage'>
+                <img class='filterGreen' <%='src='%><%=avatar%> />
+              </div>
+              <div class='cardAuthor'>
+                <span><%=name%></span>
+              </div>
+
+              </div>
+
+            <div class='cardBottom'>
+              <div class='cardContent'>
+                <div class='cardText'>
+                  <div class='cardHeader'>
+                    <h3><%=message.title%></h3>
+                  </div>
+                  <p>
+                    <%=message.message%>
+                  </p>
+                </div>
+              </div>
+              <div class='cardDate'>
+                <span><%=message.getTime %></span>
+                <span><%=message.getDate %></span>
+              </div>
+            </div>
+
+            </div>
+
+              <%  }) %>
+
+
+        </div>
+
     <footer class='footer'>
       <span class='quote'>Hackers often describe what they do as playfully creative problem solving.</span>
       <a class='footerGit' href='https://github.com/drenchoman'>

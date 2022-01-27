@@ -422,6 +422,10 @@ align-items: center;
   color: #20C20E;
   margin: 0.5rem 0 1rem 0;
 }
+
+.profileWrapper{
+  /* margin-bottom: 1rem; */
+}
 /* MEMBERS PAGE */
 
 .membersWrapper{
@@ -452,7 +456,7 @@ align-items: center;
 }
 
 a > .cardImage {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .membersBubble > a {
