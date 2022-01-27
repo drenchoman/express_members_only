@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs');
 const User = require('./models/users')
 const path = require('path');
 const flash = require('connect-flash')
+const favicon = require('serve-favicon')
 
 // Currently unused- refresh myself on what each does
 const createError = require('http-errors');
@@ -62,8 +63,8 @@ app.use(helmet());
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(compression());
+app.use('/favicon.ico', express.static('/public/images/favicon.ico'));
 app.use(express.static(__dirname+'/public'));
-
 
 app.use(session({ secret: 'dogs', resave: false, saveUninitialized: true}));
 app.use(express.urlencoded({ extended: false}));
