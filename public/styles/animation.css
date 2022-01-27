@@ -139,6 +139,10 @@
   animation-delay:0.8s;
 }
 
+.delay-4{
+  animation-delay:0.9s;
+}
+
 
 @media screen and
   (prefers-reduced-motion: reduce),

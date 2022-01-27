@@ -153,7 +153,7 @@
 
               <% if(message.replies){  %>
                 <% for (var i=0; i < message.replies.length; i++ ){ %>
-                  <div class='cardWrapper reply fadeIn'>
+                  <div class='cardWrapper reply animateFade delay-4'>
                     <% if(locals.user.admin) { %>
                       <div class='trash'>
                         <form action="/deletereply" method="POST">
